@@ -44,11 +44,12 @@ body {
   transition: 300ms;
 }
 
-.nav-items li:nth-last-of-type(1) {
-  margin: 0;
-}
+.nav-items {
 
-.nav_text {
+  
+  
+}
+.nav-items span {
   color: #021718;
   font-size: 1.5vw;
   font-family: "Poppins", sans-serif;
@@ -58,7 +59,7 @@ body {
   transition: 400ms;
 }
 
-.nav-items a:hover {
+.nav-items span:hover {
   margin-top: -10px;
   letter-spacing: 0.2em;
   border-radius: 10px;

@@ -1,6 +1,11 @@
+import { useNav } from "./hooks/useNav";
+
 const Main = () => {
+
+    const mainRef = useNav('Main');
+
   return (
-    <section id="main">
+    <section ref={mainRef} id="main">
       <div className="main_class">
         <div class="main-page-container">
           <div class="title-items">

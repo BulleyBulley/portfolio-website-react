@@ -1,15 +1,15 @@
 import { useNav } from "./hooks/useNav";
 
 
-const Portfolio = () => {
-    const portfolioRef = useNav('Portfolio');
+const About = () => {
+    const aboutRef = useNav('About');
 
   return (
-    <section ref={portfolioRef} id="portfolio">
+    <section ref={aboutRef} id="about">
       <div className="main_class">
         <div class="main-page-container">
           <div class="title-items">
-            <h1>Portfolio</h1>
+            <h1>About</h1>
           </div>
         </div>
       </div>
@@ -17,4 +17,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default About;

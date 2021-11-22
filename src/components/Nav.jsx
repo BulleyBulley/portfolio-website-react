@@ -1,7 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import  NavLink  from './hooks/NavLink';
 
 const Nav = () => {
+    const navLinks = [
+        { navLinkId: 'Main', scrollToId: 'main' },
+        { navLinkId: 'About', scrollToId: 'about' },
+        { navLinkId: 'Portfolio', scrollToId: 'portfolio' },
+        { navLinkId: 'Contact', scrollToId: 'contact' },
+    ];
+
   return (
     <nav className="nav_container">
         <div class="nav_wrapper">
@@ -10,18 +17,9 @@ const Nav = () => {
                 </div>
 
         <div class ="nav-items">
-      <Link className="nav_text" to="/">
-        home
-      </Link>
-      <Link className="nav_text" to="/post">
-        about
-      </Link>
-      <Link className="nav_text" to="/portfolio">
-        portfolio
-      </Link>
-      <Link className="nav_text" to="/post">
-        contact
-      </Link>
+        {navLinks.map(({ navLinkId, scrollToId }, idx) => (
+				<NavLink key={idx} navLinkId={navLinkId} scrollToId={scrollToId} />
+			))}
       </div>
       </div>
     </nav>
