@@ -1,11 +1,9 @@
 * {
-  
   margin: 0;
 }
 
 body {
   font-family: "Roboto", sans-serif;
- 
 }
 
 /* Navigation */
@@ -26,7 +24,6 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 10vh;
-  
 }
 
 .nav_logo h3 {
@@ -36,7 +33,6 @@ body {
   font-size: 4vw;
   color: #021718;
   transition: 300ms;
-
 }
 
 .nav_logo h3:hover {
@@ -44,12 +40,7 @@ body {
   transition: 300ms;
 }
 
-.nav-items {
-
-  
-  
-}
-.nav-items span {
+.nav_text h3 {
   color: #021718;
   font-size: 1.5vw;
   font-family: "Poppins", sans-serif;
@@ -59,11 +50,11 @@ body {
   transition: 400ms;
 }
 
-.nav-items span:hover {
-  margin-top: -10px;
-  letter-spacing: 0.2em;
-  border-radius: 10px;
+.nav_text h3:hover {
+  margin-top: -5px;
+  
   transition: 400ms;
+  
 }
 
 /* Main Page */
@@ -73,12 +64,10 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 
-  grid-template-areas:
-    "a b";
+  grid-template-areas: "a b";
 
   width: 100vw;
   height: 100vh;
-
 }
 
 .main-page-side-column {
@@ -86,14 +75,13 @@ body {
 }
 
 .title-items {
-  grid-area: 'a';
+  grid-area: "a";
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
   background-color: rgb(247, 247, 247);
   padding-bottom: 40vh;
-
 }
 
 .title-items h1 {
@@ -110,20 +98,16 @@ body {
   width: 50vw;
   background: url("./components/img/double-bubble-dark.png");
   flex: 1;
-  
-  
 }
 
 /* Main Image */
 
 .main_class h1 {
-
   font-weight: 900;
   font-size: 5vw;
   line-height: 1em;
   color: #021718;
   margin-bottom: 5vh;
-  
 }
 
 .main_class h2 {
@@ -132,7 +116,6 @@ body {
   color: #021718;
   width: 50vw;
   margin-bottom: 5vh;
-  
 }
 
 .main_class a {
@@ -143,7 +126,7 @@ body {
   background: #01847f;
   border-radius: 8px;
   padding: 1.5vh 3vw;
-  
+
   transition: 300ms;
 }
 
