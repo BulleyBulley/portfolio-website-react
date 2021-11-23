@@ -1,11 +1,11 @@
-import { useNav } from "./hooks/useNav";
+
 
 
 const Portfolio = () => {
-    const portfolioRef = useNav('Portfolio');
+    
 
   return (
-    <section ref={portfolioRef} id="portfolio">
+    <section id="portfolio">
       <div className="main_class">
         <div class="main-page-container">
           <div class="title-items">

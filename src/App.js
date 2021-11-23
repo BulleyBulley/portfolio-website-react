@@ -1,19 +1,25 @@
-import "./App.css";
-import Nav from "./components/Nav";
-import NavProvider from "./components/hooks/NavContext";
-import Container from "./components/Container";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavPage from './components/NavPage';
+import Main from './components/Main'
+import Portfolio from './components/Portfolio';
+import Container from './components/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-   
-      <div className="App">
-        <NavProvider>
-          <Nav />
-          <Container />
-        </NavProvider>
-      </div>
-    
+    <BrowserRouter>
+    <>
+    <div className="App">
+      <NavPage />
+      <Routes>
+          <Route exact path="/" element={<Container/>}/>
+          <Route exact path="/portfolio" element={<Portfolio/>}/>
+          
+        </Routes>
+    </div>
+    </>
+    </BrowserRouter>
   );
 }
 

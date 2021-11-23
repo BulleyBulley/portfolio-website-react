@@ -1,11 +1,10 @@
 
-import { useNav } from "./hooks/useNav";
 
 const Contact = () => {
-    const contactRef = useNav('Contact');
+    
 
   return (
-    <section ref={contactRef} id="contact">
+    <section id="contact">
       <div className="main_class">
         <div class="main-page-container">
           <div class="title-items">
