@@ -21,7 +21,15 @@ body {
 
 .nav_wrapper {
   margin-left: 1vw;
+  
+  
 }
+
+.nav_items {
+ 
+}
+
+
 
 .nav_logo h3 {
   font-family: "Poppins", sans-serif;
@@ -82,17 +90,6 @@ body {
   justify-content: center;
   background-color: rgb(247, 247, 247);
   padding-bottom: 10vh;
-}
-
-
-
-
-
-.bg-items {
-  height: 80vh;
-  width: 50vw;
-  background: url("./components/img/double-bubble-dark.png");
-  flex: 1;
 }
 
 .main_class h1 {
@@ -157,19 +154,19 @@ body {
 
 .skills-page-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  grid-template-areas: "c d";
+  grid-template-areas: "c";
 
   width: 100vw;
   height: 100vh;
 }
 
-.main-page-side-column-left {
+/* .main-page-side-column-left {
   grid-area: "c";
   background: url("./components/img/repeated-square-dark.png");
-}
+} */
 
 .skills_class h1 {
   font-size: 5vw;
@@ -178,11 +175,11 @@ body {
   font-family: "Open Sans", sans-serif;
   transition: 500ms;
   font-weight: 400;
-  margin-top: 2vh;
+  margin-top: 4vh;
 }
 
 .skill_items {
-  grid-area: "d";
+  grid-area: "c";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -205,7 +202,6 @@ body {
   transition: 500ms;
 }
 
-.animation_trigger{
-  animation-name: from-left;
-  animation-duration: 1s;
+.animation_trigger {
+  background-color: red;
 }
