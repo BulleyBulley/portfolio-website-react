@@ -1,4 +1,4 @@
-
+import Divider from '@mui/material/Divider';
 
 const Main = () => {
 
@@ -16,6 +16,7 @@ const Main = () => {
           <div class="main-page-side-column"></div>
         </div>
       </div>
+      <Divider light />
     </section>
   );
 };

@@ -27,21 +27,19 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@mui/material/styles";
 
 
-const Skills = () => {
+const Skills = (props) => {
   const location = useLocation()
-  console.log(location.hash)
+  const {scrollLocation} = props
+  console.log(location.hash, 'location hash')
+  console.log(scrollLocation, 'scroll location')
   const [checked, setChecked] = React.useState(false);
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
   React.useEffect (() => {
-    if (location.hash === '#skills') {
+    if (location.hash === '#skills' || scrollLocation === 'skills') {
     setChecked(true)
     }
     else {setChecked(false)}
-  },[location])
+  },[location, scrollLocation])
 
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -69,7 +67,7 @@ const Skills = () => {
             /> */}
             <Grow in={checked}
             style={{ transformOrigin: "0 0 0" }}
-            {...(checked ? { timeout: 1000 } : {})}>
+            {...(checked ? { timeout: 750 } : {})}>
               <Stack
                 class="skills_stack"
                 direction="row"
@@ -99,7 +97,7 @@ const Skills = () => {
             <Grow
               in={checked}
               style={{ transformOrigin: "0 0 0" }}
-              {...(checked ? { timeout: 2000 } : {})}
+              {...(checked ? { timeout: 1000 } : {})}
             >
               <Stack
                 direction="row"
@@ -137,7 +135,7 @@ const Skills = () => {
             <Grow
               in={checked}
               style={{ transformOrigin: "0 0 0" }}
-              {...(checked ? { timeout: 3000 } : {})}
+              {...(checked ? { timeout: 1250 } : {})}
             >
             
             <Stack
@@ -174,6 +172,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
+      <Divider light />
     </section>
     
   );
