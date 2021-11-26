@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLocation } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
@@ -25,12 +26,22 @@ import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@mui/material/styles";
 
+
 const Skills = () => {
+  const location = useLocation()
+  console.log(location.hash)
   const [checked, setChecked] = React.useState(false);
 
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
+
+  React.useEffect (() => {
+    if (location.hash === '#skills') {
+    setChecked(true)
+    }
+    else {setChecked(false)}
+  },[location])
 
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -40,24 +51,11 @@ const Skills = () => {
     color: theme.palette.text.secondary,
   }));
 
-  const icon = (
-    <Paper sx={{ m: 1 }} elevation={4}>
-      <Box component="svg" sx={{ width: 100, height: 100 }}>
-        <Box
-          component="polygon"
-          sx={{
-            fill: (theme) => theme.palette.common.white,
-            stroke: (theme) => theme.palette.divider,
-            strokeWidth: 1,
-          }}
-          points="0,100 50,00, 100,100"
-        />
-      </Box>
-    </Paper>
-  );
+
 
   return (
-    <section id="skills">
+    
+      <section id="skills">
       <div className="skills_class">
         <div class="skills-page-container">
           {/* <div class="main-page-side-column-left">
@@ -65,11 +63,13 @@ const Skills = () => {
           <div class="skill_items">
             <h1>Skills</h1>
             <h3>Languages</h3>
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange} />}
               label="Show"
-            />
-            <Grow in={checked}>
+            /> */}
+            <Grow in={checked}
+            style={{ transformOrigin: "0 0 0" }}
+            {...(checked ? { timeout: 1000 } : {})}>
               <Stack
                 class="skills_stack"
                 direction="row"
@@ -99,7 +99,7 @@ const Skills = () => {
             <Grow
               in={checked}
               style={{ transformOrigin: "0 0 0" }}
-              {...(checked ? { timeout: 1000 } : {})}
+              {...(checked ? { timeout: 2000 } : {})}
             >
               <Stack
                 direction="row"
@@ -137,7 +137,7 @@ const Skills = () => {
             <Grow
               in={checked}
               style={{ transformOrigin: "0 0 0" }}
-              {...(checked ? { timeout: 2000 } : {})}
+              {...(checked ? { timeout: 3000 } : {})}
             >
             
             <Stack
@@ -175,6 +175,7 @@ const Skills = () => {
         </div>
       </div>
     </section>
+    
   );
 };
 

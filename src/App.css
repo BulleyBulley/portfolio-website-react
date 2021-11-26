@@ -46,7 +46,7 @@ body {
   transition: 200ms;
 }
 
-.nav_text h3 {
+/* .nav_items h3 {
   color: #021718;
   font-size: 1.5vw;
   font-family: "Poppins", sans-serif;
@@ -56,11 +56,15 @@ body {
   transition: 200ms;
 }
 
-.nav_text h3:hover {
+.nav_items h3:active {
+  color:brown;
+}
+
+.nav_items h3:hover {
   margin-top: -5px;
 
   transition: 400ms;
-}
+} */
 
 /* Main Page */
 
@@ -204,4 +208,8 @@ body {
 
 .animation_trigger {
   background-color: red;
+}
+
+.active-scroll-spy {
+  background-color: rgb(185, 114, 21);
 }
