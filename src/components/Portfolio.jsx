@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Carousel } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
 import vitaleaf from "./img/carousel/vitaleaf.png"
+import ReadIt from "./img/carousel/Read_It.png"
+import edwinstreetstudio from './img/carousel/edwinstreetstudio.png'
+import pbmusicproduction from './img/carousel/pbmusicproduction.png'
+import ncnews_backend from './img/carousel/ncnews_backend.png'
 
 const Portfolio = () => {
 
@@ -28,7 +32,7 @@ const Portfolio = () => {
         <img
           className="carousel_image"
           src={vitaleaf}
-          alt="First slide"
+          alt="vitaleaf"
         />
         <Carousel.Caption>
           <h3>Vitaleaf</h3>
@@ -39,26 +43,64 @@ const Portfolio = () => {
       <Carousel.Item>
         <img
           className="carousel_image"
-          src={vitaleaf}
-          alt="Second slide"
+          src={ReadIt}
+          alt="Read It."
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Read It.</h3>
+          <p>A Reddit style news site</p>
+          <p>React/CSS/HTML/Material UI</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="carousel_image"
-          src={vitaleaf}
+          src={ncnews_backend}
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Read It Backend</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Back-End for Reddit style news app
+          </p>
+          <p>
+            PSQL/Express/Axios
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+  
+    <Carousel.Item>
+        <img
+          className="carousel_image"
+          src={edwinstreetstudio}
+          alt="Third slide"
+        />
+    <Carousel.Caption>
+          <h3>Edwin Street Recording Studio</h3>
+          <p>
+            Website for commercial recording studio
+          </p>
+          <p>
+            Bootstrap/CSS/HTML
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="carousel_image"
+          src={pbmusicproduction}
+          alt="Third slide"
+        />
+    <Carousel.Caption>
+          <h3>pbmusicproduction</h3>
+          <p>
+            Website for music producer
+          </p>
+          <p>
+            Bootstrap/CSS/HTML
           </p>
         </Carousel.Caption>
       </Carousel.Item>
