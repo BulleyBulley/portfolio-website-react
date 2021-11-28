@@ -7,36 +7,63 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
 const Contact = () => {
-  const [successResponse, setSuccessResponse] = useState(false);
+  const [successResponse, setSuccessResponse] = useState();
   const [responseMessage, setResponseMessage] = useState("");
+  const [emailErrorStatus, setEmailErrorStatus] = useState(false);
+  const [nameErrorStatus, setNameErrorStatus] = useState(false);
+  const [messageErrorStatus, setMessageErrorStatus] = useState(false);
+
   const [toSend, setToSend] = useState({
     from_name: "",
     to_name: "Phil",
     message: "",
     reply_to: "",
   });
-  const onSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    send(
-      //service_ID
-      "service_6bn2w3v",
-      //template_ID
-      "template_tohs74z",
-      toSend,
-      //user_id
-      "user_774HKCBA6tEPAX5QvuQL2"
+    if (
+      emailErrorStatus === false &&
+      nameErrorStatus === false &&
+      messageErrorStatus === false
+    ) {
+      send(
+        //service_ID
+        "service_6bn2w3v",
+        //template_ID
+        "template_tohs74z",
+        toSend,
+        //user_id
+        "user_774HKCBA6tEPAX5QvuQL2"
+      )
+        .then((response) => {
+          setSuccessResponse(true);
+          console.log("SUCCESS!", response.status, response.text);
+        })
+        .catch((err) => {
+          setSuccessResponse(false);
+          console.log("FAILED...", err);
+        });
+    } else if (
+      emailErrorStatus === false ||
+      nameErrorStatus === false ||
+      messageErrorStatus === false
     )
-      .then((response) => {
-        setSuccessResponse(true);
-        console.log("SUCCESS!", response.status, response.text);
-      })
-      .catch((err) => {
-        console.log("FAILED...", err);
-      });
+      setResponseMessage(
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <Alert severity="error">
+            Sorry, there was a problem with your message, please check input
+            fields.
+          </Alert>
+        </Stack>
+      );
   };
 
   const handleChange = (event) => {
     setToSend({ ...toSend, [event.target.name]: event.target.value });
+    setResponseMessage(null);
+    setNameErrorStatus(!toSend.from_name.length > 0);
+    setEmailErrorStatus(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(toSend.reply_to));
+    setMessageErrorStatus(!toSend.message.length > 0);
   };
 
   useEffect(() => {
@@ -44,6 +71,14 @@ const Contact = () => {
       setResponseMessage(
         <Stack sx={{ width: "100%" }} spacing={2}>
           <Alert severity="success">Thank you for your message</Alert>
+        </Stack>
+      );
+    } else if (successResponse === false) {
+      setResponseMessage(
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <Alert severity="error">
+            Sorry, there was a problem with your message, please try again.
+          </Alert>
         </Stack>
       );
     }
@@ -56,34 +91,40 @@ const Contact = () => {
           <div class="contact-items">
             <h1>Contact</h1>
             <div class="contact_form">
+              {/* <form onSubmit={handleSubmit}> */}
               <Box
                 component="form"
                 sx={{
                   "& .MuiTextField-root": { m: 1, width: "50ch" },
                 }}
-                
                 autoComplete="off"
+                onSubmit={handleSubmit}
               >
                 <div class="contact_inputs">
                   <TextField
                     required
+                    error={nameErrorStatus}
                     id="name"
-                    label="Name"
+                    label="name"
                     defaultValue=""
                     name="from_name"
                     onChange={handleChange}
                   />
                   <TextField
                     required
+                    error={emailErrorStatus}
                     id="email"
                     label="email"
                     defaultValue=""
                     name="reply_to"
+                    // helperText="Not a valid email"
+
                     onChange={handleChange}
                   />
                   <div>
                     <TextField
                       required
+                      error={messageErrorStatus}
                       id="message"
                       label="Message"
                       multiline
@@ -95,11 +136,12 @@ const Contact = () => {
                   </div>
                 </div>
                 <div class="contact_button">
-                  <Button variant="outlined" onClick={onSubmit}>
+                  <Button type="submit" variant="outlined">
                     Submit
                   </Button>
                 </div>
               </Box>
+              {/* </form> */}
               {responseMessage}
             </div>
           </div>
