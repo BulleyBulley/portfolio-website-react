@@ -1,9 +1,39 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import  {useRef, useState} from 'react'
+import { send } from 'emailjs-com';
+
 
 const Contact = () => {
-    
+  const [toSend, setToSend] = useState({
+    from_name: '',
+    to_name: 'Phil',
+    message: '',
+    reply_to: '',
+  })
+  const onSubmit = (event) => {
+    event.preventDefault();
+    send(
+      //service_ID
+      'service_6bn2w3v',
+      //template_ID
+      'template_tohs74z',
+      toSend,
+      //user_id
+      'user_774HKCBA6tEPAX5QvuQL2'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
+  };
+
+  const handleChange = (event) => {
+    setToSend({ ...toSend, [event.target.name]: event.target.value });
+  };
 
   return (
     <section id="contact">
@@ -23,31 +53,39 @@ const Contact = () => {
       <div class="contact_inputs">
         <TextField
           required
-          id="outlined-required"
+          id="name"
           label="Name"
           defaultValue=""
+          name='from_name'
+          onChange={handleChange}
         />
          <TextField
           required
-          id="outlined-required"
+          id="email"
           label="email"
           defaultValue=""
+          name='reply_to'
+          onChange={handleChange}
+          
         />
         <div>
           <TextField
           
           required
-          id="outlined-multiline-static"
+          id="message"
           label="Message"
           multiline
           rows={4}
           defaultValue=""
+          name='message'
+          onChange={handleChange}
+          
         />
         </div>
 
       </div>
       <div class='contact_button'>
-      <Button variant="outlined">Submit</Button>
+      <Button variant="outlined" onClick={onSubmit}>Submit</Button>
       </div>
     </Box>
     </div>
