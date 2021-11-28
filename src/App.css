@@ -125,14 +125,19 @@ body {
   transition: 500ms;
 }
 
-@keyframes from-left {
-  from {margin-left: -50vw;}
-  to {margin-left: 3vw;}
-}
 
-@keyframes from-bottom {
-  from {margin-bottom: -50vw;}
-  to {margin-bottom: 5vh;}
+
+.title-items-animate {
+  font-weight: 900;
+  font-size: 5vw;
+  line-height: 1em;
+  color: #021718;
+  margin-bottom: 5vh;
+  font-family: "Open Sans", sans-serif;
+  transition: 500ms;
+  margin-left: 3vw;
+  animation-name: from-left;
+  animation-duration: 1s;
 }
 
 .main_class h2 {
@@ -226,7 +231,7 @@ body {
 .portfolio-page-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1fr 3fr;
 
   grid-template-areas: 
   "e"
@@ -244,21 +249,21 @@ body {
 
 .portfolio_class h1 {
   font-size: 5vw;
-  line-height: 1em;
   color: #021718;
   font-family: "Open Sans", sans-serif;
   transition: 500ms;
   font-weight: 400;
-  margin-top: 4vh;
+  margin-top: 8vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .portfolio_title {
   grid-area: "e";
   display: flex;
   justify-content: center;
-  
   background-color: rgb(247, 247, 247);
-  padding-bottom: 10vh;
+  
 }
 
 .portfolio_carousel_container {
@@ -289,7 +294,79 @@ body {
 }
 
 .carousel_image {
-  max-width: 25vw;
-  max-height: 50vh;
+ max-width: 50vw;
+ max-height: 50vh;
   
+}
+
+/* Contact */
+
+.contact-page-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+
+  grid-template-areas: "a b";
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.contact-items {
+  grid-area: "a";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(247, 247, 247);
+  padding-bottom: 10vh;
+}
+
+.contact_class h1 {
+  font-weight: 900;
+  font-size: 5vw;
+  line-height: 1em;
+  color: #021718;
+  margin-bottom: 5vh;
+  font-family: "Open Sans", sans-serif;
+  transition: 500ms;
+  animation-name: contact-from-left;
+  animation-duration: 1s;
+}
+
+.contact-page-side-column {
+  grid-area: 'b';
+  background: url("./components/img/double-bubble-dark.png");
+}
+
+.contact_button {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_inputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact_form {
+  
+}
+
+/* Animation */
+
+@keyframes from-left {
+  from {margin-left: -50vw;}
+  to {margin-left: 3vw;}
+}
+
+@keyframes from-bottom {
+  from {margin-bottom: -50vw;}
+  to {margin-bottom: 5vh;}
+}
+
+@keyframes contact-from-left {
+  from {margin-left: -50vw;}
+  to {margin-left: 0vw;}
 }
