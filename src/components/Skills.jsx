@@ -61,10 +61,7 @@ const Skills = (props) => {
           <div class="skill_items">
             <h1>Skills</h1>
             <h3>Languages</h3>
-            {/* <FormControlLabel
-              control={<Switch checked={checked} onChange={handleChange} />}
-              label="Show"
-            /> */}
+           
             <Grow in={checked}
             style={{ transformOrigin: "0 0 0" }}
             {...(checked ? { timeout: 750 } : {})}>
@@ -134,7 +131,7 @@ const Skills = (props) => {
             <h3>Tools & Platforms</h3>
             <Grow
               in={checked}
-              style={{ transformOrigin: "0 0 0" }}
+              style={{ transformOrigin: "200 0 0" }}
               {...(checked ? { timeout: 1250 } : {})}
             >
             

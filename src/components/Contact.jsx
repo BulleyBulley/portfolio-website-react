@@ -145,6 +145,7 @@ const Contact = () => {
               {responseMessage}
             </div>
           </div>
+          <div class='contact-page-side-column'></div>
         </div>
       </div>
     </section>
