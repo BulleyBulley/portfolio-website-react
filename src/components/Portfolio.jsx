@@ -75,6 +75,7 @@ const Portfolio = () => {
               cols={6}
               rowHeight={"10%"}
             >
+              
               {itemData.map((item) => (
                 <ImageListItem
                   key={item.img}
@@ -99,7 +100,9 @@ const Portfolio = () => {
                     }
                   />
                 </ImageListItem>
+                
               ))}
+              
             </ImageList>
           </div>
         </div>

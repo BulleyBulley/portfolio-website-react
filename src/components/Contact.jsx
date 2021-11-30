@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { send } from "emailjs-com";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from "@mui/system";
 
 const Contact = () => {
   const [successResponse, setSuccessResponse] = useState();
@@ -12,6 +14,25 @@ const Contact = () => {
   const [emailErrorStatus, setEmailErrorStatus] = useState(false);
   const [nameErrorStatus, setNameErrorStatus] = useState(false);
   const [messageErrorStatus, setMessageErrorStatus] = useState(false);
+
+  let theme = createTheme({
+    palette: {
+      primary: {
+        main: '#0D21A1',
+      },
+      secondary: {
+        main: '#edf2ff',
+      },
+    },
+  });
+  
+  theme = createTheme(theme, {
+    palette: {
+      info: {
+        main: theme.palette.secondary.main,
+      },
+    },
+  });
 
   const [toSend, setToSend] = useState({
     from_name: "",
@@ -85,6 +106,7 @@ const Contact = () => {
   }, [successResponse]);
 
   return (
+    <ThemeProvider theme={theme}>
     <section id="contact">
       <div className="contact_class">
         <div class="contact-page-container">
@@ -92,6 +114,7 @@ const Contact = () => {
             <h1>Contact</h1>
             <div class="contact_form">
               {/* <form onSubmit={handleSubmit}> */}
+              
               <Box
                 component="form"
                 sx={{
@@ -108,6 +131,7 @@ const Contact = () => {
                     label="name"
                     defaultValue=""
                     name="from_name"
+                    variant="filled"
                     onChange={handleChange}
                   />
                   <TextField
@@ -118,7 +142,7 @@ const Contact = () => {
                     defaultValue=""
                     name="reply_to"
                     // helperText="Not a valid email"
-
+                    variant="filled"
                     onChange={handleChange}
                   />
                   <div>
@@ -131,12 +155,13 @@ const Contact = () => {
                       rows={4}
                       defaultValue=""
                       name="message"
+                      variant="filled"
                       onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div class="contact_button">
-                  <Button type="submit" variant="outlined">
+                  <Button type="submit" variant="contained">
                     Submit
                   </Button>
                 </div>
@@ -149,6 +174,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </ThemeProvider>
   );
 };
 
