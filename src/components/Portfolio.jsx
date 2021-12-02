@@ -25,38 +25,33 @@ const Portfolio = () => {
   const itemData = [
     {
       img: vitaleaf,
-      title: "vitaleaf - A mobile plant management app.",
-      subtitle: "React Native/TypeScript/AWS",
-      rows: 6,
-      cols: 2,
+      title: "vitaleaf",
+      subtitle: "A mobile plant management app",
+      text: "React Native/TypeScript/AWS",
     },
     {
       img: ReadIt,
-      title: "ReadIt - A Reddit style front-end news clone",
-      subtitle: "React/CSS/HTML/Material UI",
-      rows: 3,
-      cols: 2,
+      title: "Read It.",
+      subtitle: "A Reddit style front-end news clone",
+      text: "React/CSS/HTML/Material UI",
     },
     {
       img: ncnews_backend,
-      title: "nc_news backend - Backend for ReadIt",
-      subtitle: "JavaScript/PSQL/Express/Axios",
-      rows: 2,
-      cols: 2,
+      title: "nc_news",
+      subtitle: "Back-end for ReadIt",
+      text: "JavaScript/PSQL/Node.JS/Express/Axios",
     },
     {
       img: edwinstreetstudio,
-      title: "Edwin Street Recording Studio - Recording Studio Website",
-      subtitle: "Bootstrap/HTML/CSS/Sass/PHP",
-      rows: 3,
-      cols: 2,
+      title: "Edwin Street Recording Studio",
+      subtitle: "Commercial Recording Studio Website",
+      text: "Bootstrap/HTML/CSS/Sass/PHP",
     },
     {
       img: pbmusicproduction,
-      title: "pbmusicproduction - Music Producer website",
-      subtitle: "HTML/CSS/JavaScript/Sass/PHP/JQuery",
-      rows: 3,
-      cols: 2,
+      title: "pbmusicproduction.co.uk",
+      subtitle: "Recording Engineer Website",
+      text: "HTML/CSS/JavaScript/Sass/PHP/JQuery",
     },
   ];
 
@@ -67,46 +62,25 @@ const Portfolio = () => {
           <div class="portfolio_title">
             <h1>Portfolio</h1>
           </div>
-
-          <div class="portfolio_image_list_container">
-            <ImageList
-              sx={{ width: "80%", height: "100%" }}
-              variant="quilted"
-              cols={6}
-              rowHeight={"10%"}
-            >
-              
-              {itemData.map((item) => (
-                <ImageListItem
-                  key={item.img}
-                  cols={item.cols || 1}
-                  rows={item.rows || 1}
-                >
-                  <img
-                    {...srcset(item.img, 121, item.rows, item.cols)}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                  <ImageListItemBar
-                    title={item.title}
-                    subtitle={item.subtitle}
-                    actionIcon={
-                      <IconButton
-                        sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                        aria-label={`info about ${item.title}`}
-                      >
-                        <InfoIcon />
-                      </IconButton>
-                    }
-                  />
-                </ImageListItem>
-                
+          <ul>
+            <div class="portfolio_wrap">
+              {itemData.map((item, index) => (
+                <div class={`box box${index + 1} shadow${index + 1}`}>
+                  <div class="box_text_box">
+                    <h2>{item.title}</h2>
+                    <h3>{item.subtitle}</h3>
+                    <h3>{item.text}</h3>
+                  </div>
+                  <div class="box_image_container">
+                    <img src={item.img} alt="preview" />
+                  </div>
+                </div>
               ))}
-              
-            </ImageList>
-          </div>
+            </div>
+          </ul>
         </div>
       </div>
+      <Divider></Divider>
     </section>
   );
 };

@@ -17,7 +17,7 @@ function App() {
       <NavPage titleClass={titleClass} setTitleClass={setTitleClass}/>
       <Routes>
           <Route exact path="/" element={<Container titleClass={titleClass} setTitleClass={setTitleClass}/>} />
-          <Route exact path="/portfolio" element={<Portfolio/>}/>
+          {/* <Route exact path="/portfolio" element={<Portfolio/>}/> */}
           
         </Routes>
     </div>
