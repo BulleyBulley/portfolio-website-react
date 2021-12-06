@@ -1,12 +1,24 @@
+import * as React from "react";
 import Divider from '@mui/material/Divider';
+import { useLocation } from "react-router-dom";
 
-const Main = () => {
+const Main = (props) => {
+  const location = useLocation()
+  const {scrollLocation} = props
+  const [animate, setAnimate] = React.useState("main_class");
 
+  React.useEffect(() => {
+    if (location.hash === "#main" || scrollLocation === "main") {
+      setAnimate("main_class_animate");
+    } else {
+      setAnimate("main_class");
+    }
+  }, [location, scrollLocation]);
     
 
   return (
     <section id="main">
-      <div className="main_class">
+      <div className={animate}>
         <div class="main-page-container">
           <div class="title-items">
             <h1>Phil Bulleyment</h1>

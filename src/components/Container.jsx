@@ -14,7 +14,7 @@ const Container = () => {
         <ScrollSpy scrollThrottle={200} useBoxMethod={false} dataOffset={50} onUpdateCallback={location =>
                 setScrollLocation(location)
               }>
-        <Main />
+        <Main scrollLocation={scrollLocation} setScrollLocation={setScrollLocation}/>
         <Skills scrollLocation={scrollLocation} setScrollLocation={setScrollLocation}/>
         <Portfolio scrollLocation={scrollLocation} setScrollLocation={setScrollLocation}/>
         <Contact />

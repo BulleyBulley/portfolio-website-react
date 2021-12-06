@@ -8,10 +8,10 @@ import edwinstreetstudio from "./img/carousel/edwinstreetstudio.png";
 import pbmusicproduction from "./img/carousel/pbmusicproduction.png";
 import ncnews_backend from "./img/carousel/ncnews_backend.png";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { SettingsRemoteTwoTone } from "@mui/icons-material";
+import Fade from "@mui/material/Fade";
+import Backdrop from "@mui/material/Backdrop";
 
 const Portfolio = (props) => {
   const location = useLocation();
@@ -19,8 +19,11 @@ const Portfolio = (props) => {
   const [checked, setChecked] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [portfolioItem, setPortfolioItem] = React.useState("");
+  const [wobble, setWobble] = React.useState(0)
+
   const handleOpen = (event, item) => {
     console.log(item);
+    setWobble(1)
     setOpen(true);
     setPortfolioItem(item);
   };
@@ -39,11 +42,12 @@ const Portfolio = (props) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: "50%",
     bgcolor: "background.paper",
     border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
+    boxShadow: "10%",
+    p: "10%",
+    
   };
 
   const itemData = [
@@ -93,10 +97,12 @@ const Portfolio = (props) => {
           >
             <div class="portfolio_wrap">
               {itemData.map((item, index) => (
-                //try callback function onClick => handleOpen(index)
                 <div
                   class={`box box${index + 1} shadow${index + 1}`}
                   onClick={(event) => handleOpen(event, item)}
+                  onAnimationEnd={() => setWobble(0)}
+                  wobble={wobble}
+                  
                 >
                   <div class="box_text_box">
                     <h2>{item.title}</h2>
@@ -107,30 +113,47 @@ const Portfolio = (props) => {
                   <div class="box_image_container">
                     <img src={item.img} alt="preview" />
                   </div>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
+                </div>
+              ))}
+              <div>
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
+                >
+                  <Fade in={open}>
                     <Box sx={style}>
                       <Typography
                         id="modal-modal-title"
-                        variant="h6"
+                        variant="h3"
                         component="h2"
                       >
                         {portfolioItem.title}
                       </Typography>
-                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      <Typography
+                        id="modal-modal-description"
+                        sx={{ mt: 2 }}
+                        variant="h4"
+                      >
                         {portfolioItem.subtitle}
                       </Typography>
-                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      <Typography
+                        id="modal-modal-description"
+                        sx={{ mt: 2 }}
+                        variant="h5"
+                      >
                         {portfolioItem.text}
                       </Typography>
                     </Box>
-                  </Modal>
-                </div>
-              ))}
+                  </Fade>
+                </Modal>
+              </div>
             </div>
           </Grow>
         </div>

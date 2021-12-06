@@ -23,9 +23,6 @@ body {
   margin-left: 1vw;
 }
 
-.nav_items {
-}
-
 .nav_logo h3 {
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -104,7 +101,7 @@ body {
   /* background by SVGBackgrounds.com */
 }
 
-.main_class h1 {
+.main_class_animate h1 {
   font-weight: 900;
   font-size: 5vw;
   line-height: 1em;
@@ -117,25 +114,39 @@ body {
   animation-duration: 1s;
 }
 
+.main_class h1 {
+  font-weight: 900;
+  font-size: 5vw;
+  line-height: 1em;
+  color: #011638;
+  margin-bottom: 5vh;
+  font-family: "Open Sans", sans-serif;
+  transition: 500ms;
+  margin-left: 3vw;
+
+}
+
 .title-items h1:hover {
   letter-spacing: 0.05em;
   transition: 500ms;
 }
 
-.title-items-animate {
-  font-weight: 900;
-  font-size: 5vw;
-  line-height: 1em;
-  color: #021718;
-  margin-bottom: 5vh;
-  font-family: "Open Sans", sans-serif;
-  transition: 500ms;
-  margin-left: 3vw;
-  animation-name: from-left;
-  animation-duration: 1s;
-}
+
 
 .main_class h2 {
+  font-size: 3vw;
+  line-height: 1em;
+  color: #011638;
+  width: 50vw;
+  margin-bottom: 5vh;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  transition: 500ms;
+  margin-left: 3vw;
+  
+}
+
+.main_class_animate h2 {
   font-size: 3vw;
   line-height: 1em;
   color: #011638;
@@ -267,16 +278,9 @@ body {
   margin-top: 4vh;
 }
 
-.portfolio_items h3 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  transition: 500ms;
-}
 
-.portfolio_items h1:hover {
-  letter-spacing: 0.05em;
-  transition: 500ms;
-}
+
+
 
 /* Portfolio Boxes */
 
@@ -314,14 +318,44 @@ body {
 
 .box:hover {
   
-  border-style: ridge;
+  
   background-color: rgb(24, 43, 74, 0.7);
   letter-spacing: 0.1em;
   transition: 500ms !important;
+}
 
+.box:active[wobble='1'] {
+  animation: myAnim 2s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
 }
 
 
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+
+  10% {
+    animation-timing-function: ease-in;
+    transform: scale(0.91);
+  }
+
+  17% {
+    animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+
+  33% {
+    animation-timing-function: ease-in;
+    transform: scale(0.87);
+  }
+
+  45% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}
 
 .box_image_container img {
   display: flex;
@@ -598,7 +632,7 @@ body {
 
 @keyframes from-bottom {
   from {
-    margin-bottom: -50vw;
+    margin-bottom: -200vw;
   }
   to {
     margin-bottom: 5vh;
