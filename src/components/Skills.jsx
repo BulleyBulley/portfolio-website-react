@@ -21,9 +21,6 @@ import cognito from "./img/logos/cognito.png";
 import amplify from "./img/logos/amplify.png";
 import netlify from "./img/logos/netlify.png";
 import Grow from "@mui/material/Grow";
-import Box from "@mui/material/Box";
-import Switch from "@mui/material/Switch";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@mui/material/styles";
 
 

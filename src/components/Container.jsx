@@ -11,12 +11,12 @@ const Container = () => {
         
     return (
         <>
-        <ScrollSpy scrollThrottle={100} useBoxMethod={false} offsetTop={50} onUpdateCallback={location =>
+        <ScrollSpy scrollThrottle={200} useBoxMethod={false} dataOffset={50} onUpdateCallback={location =>
                 setScrollLocation(location)
               }>
         <Main />
         <Skills scrollLocation={scrollLocation} setScrollLocation={setScrollLocation}/>
-        <Portfolio />
+        <Portfolio scrollLocation={scrollLocation} setScrollLocation={setScrollLocation}/>
         <Contact />
         </ScrollSpy>
         </>
