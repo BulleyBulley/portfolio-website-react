@@ -7,10 +7,10 @@ import ReadIt from "./img/carousel/Read_It.png";
 import edwinstreetstudio from "./img/carousel/edwinstreetstudio.png";
 import pbmusicproduction from "./img/carousel/pbmusicproduction.png";
 import ncnews_backend from "./img/carousel/ncnews_backend.png";
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import { SettingsRemoteTwoTone } from "@mui/icons-material";
 
 const Portfolio = (props) => {
@@ -18,16 +18,16 @@ const Portfolio = (props) => {
   const { scrollLocation } = props;
   const [checked, setChecked] = React.useState(false);
   const [open, setOpen] = React.useState(false);
-  const [portfolioItem, setPortfolioItem] = React.useState('')
+  const [portfolioItem, setPortfolioItem] = React.useState("");
   const handleOpen = (event, item) => {
-   console.log(item)
-    setOpen(true) 
-    setPortfolioItem(item)
-  }
+    console.log(item);
+    setOpen(true);
+    setPortfolioItem(item);
+  };
   const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
-    if (location.hash === '#portfolio' || scrollLocation === 'portfolio') {
+    if (location.hash === "#portfolio" || scrollLocation === "portfolio") {
       setChecked(true);
     } else {
       setChecked(false);
@@ -35,17 +35,16 @@ const Portfolio = (props) => {
   }, [location, scrollLocation]);
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: "background.paper",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
-  
 
   const itemData = [
     {
@@ -95,42 +94,45 @@ const Portfolio = (props) => {
             <div class="portfolio_wrap">
               {itemData.map((item, index) => (
                 //try callback function onClick => handleOpen(index)
-                <div class={`box box${index + 1} shadow${index + 1}`} onClick={(event) => handleOpen(event, item)}>
-                  
+                <div
+                  class={`box box${index + 1} shadow${index + 1}`}
+                  onClick={(event) => handleOpen(event, item)}
+                >
                   <div class="box_text_box">
                     <h2>{item.title}</h2>
                     {/* <h3>{item.subtitle}</h3>
                     <h3>{item.text}</h3> */}
                   </div>
-                  
+
                   <div class="box_image_container">
                     <img src={item.img} alt="preview" />
                   </div>
                   <Modal
-  open={open}
-  onClose={handleClose}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
->
-  <Box sx={style}>
-    <Typography id="modal-modal-title" variant="h6" component="h2">
-      {portfolioItem.title}
-    </Typography>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      {portfolioItem.subtitle}
-    </Typography>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      {portfolioItem.text}
-    </Typography>
-  </Box>
-</Modal>
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style}>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h2"
+                      >
+                        {portfolioItem.title}
+                      </Typography>
+                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        {portfolioItem.subtitle}
+                      </Typography>
+                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        {portfolioItem.text}
+                      </Typography>
+                    </Box>
+                  </Modal>
                 </div>
               ))}
             </div>
           </Grow>
-          
-            
-
         </div>
       </div>
       <Divider></Divider>
