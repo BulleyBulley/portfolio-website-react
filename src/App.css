@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Outfit:wght@300;400&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
 }
@@ -211,9 +211,6 @@ body {
   padding-bottom: 10vh;
 }
 
-.skill_items h1 {
-}
-
 .skill_items h3 {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -272,6 +269,11 @@ body {
   margin-top: 4vh;
 }
 
+.portfolio_title h1:hover {
+  letter-spacing: 0.05em;
+  transition: 500ms;
+}
+
 /* Portfolio Boxes */
 
 .portfolio_wrap {
@@ -280,10 +282,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  border-radius: 20px;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
   margin-bottom: 1vh;
 
   /* background-color: #0d21a1;
@@ -300,66 +300,36 @@ body {
   flex-basis: 40vw;
   float: left;
   margin: 25px 15px;
-  border-radius: 1vw;
-  background-color: rgba(238, 240, 242, 0.7);
-  
+  border-radius: 3px;
+  border-width: 1px;
+  background-color: rgba(238, 240, 242, 0.5);
+
   transition: 500ms !important;
   padding: 1vw;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.3) inset;
 }
 
-/* .box:hover {
-  background-color: rgb(24, 43, 74, 0.7);
-  letter-spacing: 0.1em;
+.box:hover {
+  background-color: rgba(1, 22, 56, 0.1);
   transition: 500ms !important;
-} */
+}
 
 .box:active[wobble="1"] {
   animation: myAnim 2s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
 }
 
-@keyframes myAnim {
-  0% {
-    animation-timing-function: ease-out;
-    transform: scale(1);
-    transform-origin: center center;
-  }
-
-  10% {
-    animation-timing-function: ease-in;
-    transform: scale(0.91);
-  }
-
-  17% {
-    animation-timing-function: ease-out;
-    transform: scale(0.98);
-  }
-
-  33% {
-    animation-timing-function: ease-in;
-    transform: scale(0.87);
-  }
-
-  45% {
-    animation-timing-function: ease-out;
-    transform: scale(1);
-  }
-}
-
-
 .box_title_text_box {
-  
   display: flex;
   align-content: center;
   margin-right: 2vw;
 }
 
 .box_image_container img {
-  
   display: flex;
   flex-wrap: wrap;
   max-width: 30vw;
   max-height: 30vh;
-  margin:10px;
+  margin: 10px;
 }
 
 .box h2 {
@@ -387,29 +357,6 @@ body {
   letter-spacing: 0.1rem;
   color: #141414;
 }
-
-/* 141414 */
-.shadow1,
-.shadow2,
-.shadow3,
-.shadow4,
-.shadow5,
-.shadow6,
-.shadow7,
-.shadow8 {
-  position: relative;
-}
-.shadow1,
-.shadow2,
-.shadow3,
-.shadow4,
-.shadow5,
-.shadow6,
-.shadow7,
-.shadow8 {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.3) inset;
-}
-
 
 /* Contact */
 

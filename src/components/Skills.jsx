@@ -21,6 +21,7 @@ import cognito from "./img/logos/cognito.png";
 import amplify from "./img/logos/amplify.png";
 import netlify from "./img/logos/netlify.png";
 import Grow from "@mui/material/Grow";
+import jest from "./img/logos/jest.png";
 import { styled } from "@mui/material/styles";
 
 
@@ -148,6 +149,10 @@ const Skills = (props) => {
               <Item>
                 <Avatar src={cognito} />
                 Cognito
+              </Item>
+              <Item>
+                <Avatar src={jest} />
+                Jest
               </Item>
               <Item>
                 <Avatar src={gitactions} />
