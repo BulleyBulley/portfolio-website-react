@@ -9,7 +9,6 @@ const Portfolio = (props) => {
   const location = useLocation();
   const { scrollLocation } = props;
   const [checked, setChecked] = React.useState(false);
-  
 
   React.useEffect(() => {
     if (location.hash === "#portfolio" || scrollLocation === "portfolio") {
@@ -18,8 +17,6 @@ const Portfolio = (props) => {
       setChecked(false);
     }
   }, [location, scrollLocation]);
-
-  
 
   return (
     <section id="portfolio">
