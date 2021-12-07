@@ -2,7 +2,7 @@ import * as React from "react";
 import { useLocation } from "react-router-dom";
 import Grow from "@mui/material/Grow";
 import Divider from "@mui/material/Divider";
-import vitaleaf from "./img/carousel/vitaleaf.png";
+import vitaleaf from "./img/carousel/vitaleaf_screens.svg";
 import ReadIt from "./img/carousel/Read_It.png";
 import edwinstreetstudio from "./img/carousel/edwinstreetstudio.png";
 import pbmusicproduction from "./img/carousel/pbmusicproduction.png";
@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Backdrop from "@mui/material/Backdrop";
+import CardMedia from "@mui/material/CardMedia";
 
 const Portfolio = (props) => {
   const location = useLocation();
@@ -19,11 +20,11 @@ const Portfolio = (props) => {
   const [checked, setChecked] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [portfolioItem, setPortfolioItem] = React.useState("");
-  const [wobble, setWobble] = React.useState(0)
+  const [wobble, setWobble] = React.useState(0);
 
   const handleOpen = (event, item) => {
     console.log(item);
-    setWobble(1)
+    setWobble(1);
     setOpen(true);
     setPortfolioItem(item);
   };
@@ -47,7 +48,7 @@ const Portfolio = (props) => {
     border: "2px solid #000",
     boxShadow: "10%",
     p: "10%",
-    
+    // backgroundImage: `url(${portfolioItem.img})`
   };
 
   const itemData = [
@@ -55,31 +56,31 @@ const Portfolio = (props) => {
       img: vitaleaf,
       title: "vitaleaf",
       subtitle: "A mobile plant management app",
-      text: "React Native/TypeScript/AWS(DynamoDb, API Gateway, Cognito, Amplify)",
+      text: "React Native | TypeScript | AWS(DynamoDb, API Gateway, Cognito, Amplify) | Jest",
     },
     {
       img: ReadIt,
       title: "Read It.",
       subtitle: "A Reddit style front-end news clone",
-      text: "React/CSS/HTML/Material UI",
+      text: "React | CSS | HTML | Material UI | Jest",
     },
     {
       img: ncnews_backend,
       title: "nc_news",
       subtitle: "Back-end for ReadIt",
-      text: "JavaScript/PSQL/Node.JS/Express/Axios",
+      text: "JavaScript | PSQL | Node.JS | Express | Axios | Jest",
     },
     {
       img: edwinstreetstudio,
       title: "Edwin Street Recording Studio",
       subtitle: "Commercial Recording Studio Website",
-      text: "Bootstrap/HTML/CSS/Sass/PHP",
+      text: "Bootstrap | HTML | CSS | Sass | PHP",
     },
     {
       img: pbmusicproduction,
       title: "pbmusicproduction.co.uk",
       subtitle: "Recording Engineer Website",
-      text: "HTML/CSS/JavaScript/Sass/PHP/JQuery",
+      text: "HTML | CSS | JavaScript | Sass | PHP | JQuery",
     },
   ];
 
@@ -102,21 +103,24 @@ const Portfolio = (props) => {
                   onClick={(event) => handleOpen(event, item)}
                   onAnimationEnd={() => setWobble(0)}
                   wobble={wobble}
-                  
                 >
-                  <div class="box_text_box">
-                    <h2>{item.title}</h2>
-                    {/* <h3>{item.subtitle}</h3>
-                    <h3>{item.text}</h3> */}
-                  </div>
+ 
 
                   <div class="box_image_container">
                     <img src={item.img} alt="preview" />
                   </div>
+                  <div class="box_title_text_box">
+                    <h2>{item.title}</h2>
+                  </div>
+
+                  <div class="box_info_text_box">
+                    <h3>{item.subtitle}</h3>
+                    <h4>{item.text}</h4>
+                  </div>
                 </div>
               ))}
               <div>
-                <Modal
+                {/* <Modal
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="modal-modal-title"
@@ -129,6 +133,12 @@ const Portfolio = (props) => {
                 >
                   <Fade in={open}>
                     <Box sx={style}>
+                    <CardMedia
+                    style={{height: 0, paddingTop: '56.25%'}}
+    className='modal_image'
+    image={portfolioItem.img}
+    title="Paella dish"
+/>
                       <Typography
                         id="modal-modal-title"
                         variant="h3"
@@ -152,7 +162,7 @@ const Portfolio = (props) => {
                       </Typography>
                     </Box>
                   </Fade>
-                </Modal>
+                </Modal> */}
               </div>
             </div>
           </Grow>
