@@ -250,7 +250,7 @@ svg.MuiSvgIcon-root:hover {
 .portfolio-page-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 5fr;
 
   grid-template-areas:
     "e"
