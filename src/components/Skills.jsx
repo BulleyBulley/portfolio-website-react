@@ -26,6 +26,7 @@ import { styled } from "@mui/material/styles";
 
 const Skills = (props) => {
   const location = useLocation();
+  
   const { scrollLocation } = props;
   // console.log(location.hash, '<--location hash')
   // console.log(scrollLocation, '<--scroll location')
