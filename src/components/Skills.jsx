@@ -24,20 +24,20 @@ import Grow from "@mui/material/Grow";
 import jest from "./img/logos/jest.png";
 import { styled } from "@mui/material/styles";
 
-
 const Skills = (props) => {
-  const location = useLocation()
-  const {scrollLocation} = props
+  const location = useLocation();
+  const { scrollLocation } = props;
   // console.log(location.hash, '<--location hash')
   // console.log(scrollLocation, '<--scroll location')
   const [checked, setChecked] = React.useState(false);
 
-  React.useEffect (() => {
-    if (location.hash === '#skills' || scrollLocation === 'skills') {
-    setChecked(true)
+  React.useEffect(() => {
+    if (location.hash === "#skills" || scrollLocation === "skills") {
+      setChecked(true);
+    } else {
+      setChecked(false);
     }
-    else {setChecked(false)}
-  },[location, scrollLocation])
+  }, [location, scrollLocation]);
 
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -47,11 +47,8 @@ const Skills = (props) => {
     color: theme.palette.text.secondary,
   }));
 
-
-
   return (
-    
-      <section id="skills">
+    <section id="skills">
       <div className="skills_class">
         <div class="skills-page-container">
           {/* <div class="main-page-side-column-left">
@@ -59,10 +56,12 @@ const Skills = (props) => {
           <div class="skill_items">
             <h1>Skills</h1>
             <h3>Languages</h3>
-           
-            <Grow in={checked}
-            style={{ transformOrigin: "0 0 0" }}
-            {...(checked ? { timeout: 750 } : {})}>
+
+            <Grow
+              in={checked}
+              style={{ transformOrigin: "0 0 0" }}
+              {...(checked ? { timeout: 750 } : {})}
+            >
               <Stack
                 class="skills_stack"
                 direction="row"
@@ -132,48 +131,46 @@ const Skills = (props) => {
               style={{ transformOrigin: "200 0 0" }}
               {...(checked ? { timeout: 1250 } : {})}
             >
-            
-            <Stack
-              direction="row"
-              divider={<Divider orientation="vertical" flexItem />}
-              spacing={5}
-            >
-              <Item>
-                <Avatar src={github} />
-                Git
-              </Item>
-              <Item>
-                <Avatar src={heroku} />
-                Heroku
-              </Item>
-              <Item>
-                <Avatar src={cognito} />
-                Cognito
-              </Item>
-              <Item>
-                <Avatar src={jest} />
-                Jest
-              </Item>
-              <Item>
-                <Avatar src={gitactions} />
-                Git Actions
-              </Item>
-              <Item>
-                <Avatar src={netlify} />
-                Netlify
-              </Item>
-              <Item>
-                <Avatar src={amplify} />
-                Amplify
-              </Item>
-            </Stack>
+              <Stack
+                direction="row"
+                divider={<Divider orientation="vertical" flexItem />}
+                spacing={5}
+              >
+                <Item>
+                  <Avatar src={github} />
+                  Git
+                </Item>
+                <Item>
+                  <Avatar src={heroku} />
+                  Heroku
+                </Item>
+                <Item>
+                  <Avatar src={cognito} />
+                  Cognito
+                </Item>
+                <Item>
+                  <Avatar src={jest} />
+                  Jest
+                </Item>
+                <Item>
+                  <Avatar src={gitactions} />
+                  Git Actions
+                </Item>
+                <Item>
+                  <Avatar src={netlify} />
+                  Netlify
+                </Item>
+                <Item>
+                  <Avatar src={amplify} />
+                  Amplify
+                </Item>
+              </Stack>
             </Grow>
           </div>
         </div>
       </div>
       <Divider light />
     </section>
-    
   );
 };
 

@@ -32,7 +32,7 @@ body {
   font-size: 4vw;
   color: #011638;
   transition: 500ms;
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
 
 .nav_logo h3:hover {
@@ -102,11 +102,11 @@ body {
 
 .main-page-side-column {
   grid-area: main_right;
-  border-style: groove;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 10vh;
 }
 
 .title_items_animate h1 {
@@ -176,6 +176,17 @@ body {
 
 .title_items a:hover {
   transform: translateY(-8px);
+}
+
+svg.MuiSvgIcon-root {
+  font-size: 3vw;
+  margin-bottom: 3vh;
+  transition: 300ms;
+}
+
+svg.MuiSvgIcon-root:hover {
+  font-size: 4vw;
+  transition: 300ms;
 }
 
 /* Skills */
