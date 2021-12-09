@@ -34,7 +34,8 @@ const Portfolio = (props) => {
           >
             <div class="portfolio_wrap">
               {itemData.map((item, index) => (
-                <div class={`box box${index + 1} shadow${index + 1}`}>
+                
+                <div class={`box box${index + 1} shadow${index + 1}`} key={item.title}>
                   <div class="box_image_container">
                     <img src={item.img} alt="preview" />
                   </div>
@@ -45,7 +46,9 @@ const Portfolio = (props) => {
                   <div class="box_info_text_box">
                     <h3>{item.subtitle}</h3>
                     <h4>{item.text}</h4>
+                    
                   </div>
+                  
 
                   <Button href={item.link} variant="contained">
                     {item.title}

@@ -4,7 +4,6 @@ import Grow from "@mui/material/Grow";
 import { useLocation } from "react-router-dom";
 import GitHub from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import Button from "@restart/ui/esm/Button";
 import { IconButton } from "@mui/material";
 
 const Main = (props) => {
