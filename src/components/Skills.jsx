@@ -26,7 +26,7 @@ import { styled } from "@mui/material/styles";
 
 const Skills = (props) => {
   const location = useLocation();
-  
+
   const { scrollLocation } = props;
   // console.log(location.hash, '<--location hash')
   // console.log(scrollLocation, '<--scroll location')
@@ -65,9 +65,10 @@ const Skills = (props) => {
             >
               <Stack
                 class="skills_stack"
-                direction="row"
+                direction={{ xs: "row", lg: "row" }}
                 divider={<Divider orientation="vertical" flexItem />}
-                spacing={2}
+                spacing={{ xs: 0, s: 2, m: 2, lg: 2 }}
+                sx={{ flexWrap: "wrap", justifyContent: "center" }}
               >
                 <Item>
                   <Avatar src={js} />
@@ -95,9 +96,10 @@ const Skills = (props) => {
               {...(checked ? { timeout: 1000 } : {})}
             >
               <Stack
-                direction="row"
+                direction={{ xs: "row", lg: "row" }}
                 divider={<Divider orientation="vertical" flexItem />}
-                spacing={5}
+                spacing={{ xs: 0, sm: 2, m: 2, lg: 2 }}
+                sx={{ flexWrap: "wrap", justifyContent: "center" }}
               >
                 <Item>
                   <Avatar src={react} />
@@ -133,9 +135,14 @@ const Skills = (props) => {
               {...(checked ? { timeout: 1250 } : {})}
             >
               <Stack
-                direction="row"
+                direction={{ xs: "row", lg: "row" }}
                 divider={<Divider orientation="vertical" flexItem />}
-                spacing={5}
+                spacing={{ xs: 0, sm: 2, m: 2, lg: 2 }}
+                sx={{
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  alignContent: "center",
+                }}
               >
                 <Item>
                   <Avatar src={github} />

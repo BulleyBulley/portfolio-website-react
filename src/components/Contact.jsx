@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { send } from "emailjs-com";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/system";
 
 const Contact = () => {
@@ -18,14 +18,14 @@ const Contact = () => {
   let theme = createTheme({
     palette: {
       primary: {
-        main: '#0D21A1',
+        main: "#0D21A1",
       },
       secondary: {
-        main: '#edf2ff',
+        main: "#edf2ff",
       },
     },
   });
-  
+
   theme = createTheme(theme, {
     palette: {
       info: {
@@ -107,73 +107,73 @@ const Contact = () => {
 
   return (
     <ThemeProvider theme={theme}>
-    <section id="contact">
-      <div className="contact_class">
-        <div class="contact-page-container">
-          <div class="contact-items">
-            <h1>Contact</h1>
-            <div class="contact_form">
-              {/* <form onSubmit={handleSubmit}> */}
-              
-              <Box
-                component="form"
-                sx={{
-                  "& .MuiTextField-root": { m: 1, width: "50ch" },
-                }}
-                autoComplete="off"
-                onSubmit={handleSubmit}
-              >
-                <div class="contact_inputs">
-                  <TextField
-                    required
-                    error={nameErrorStatus}
-                    id="name"
-                    label="name"
-                    defaultValue=""
-                    name="from_name"
-                    variant="filled"
-                    onChange={handleChange}
-                  />
-                  <TextField
-                    required
-                    error={emailErrorStatus}
-                    id="email"
-                    label="email"
-                    defaultValue=""
-                    name="reply_to"
-                    // helperText="Not a valid email"
-                    variant="filled"
-                    onChange={handleChange}
-                  />
-                  <div>
+      <section id="contact">
+        <div className="contact_class">
+          <div class="contact-page-container">
+            <div class="contact-items">
+              <h1>Contact</h1>
+              <div class="contact_form">
+                {/* <form onSubmit={handleSubmit}> */}
+
+                <Box
+                  component="form"
+                  sx={{
+                    "& .MuiTextField-root": { m: 2, width: "80vw" },
+                  }}
+                  autoComplete="off"
+                  onSubmit={handleSubmit}
+                >
+                  <div class="contact_inputs">
                     <TextField
                       required
-                      error={messageErrorStatus}
-                      id="message"
-                      label="Message"
-                      multiline
-                      rows={4}
+                      error={nameErrorStatus}
+                      id="name"
+                      label="name"
                       defaultValue=""
-                      name="message"
+                      name="from_name"
                       variant="filled"
                       onChange={handleChange}
                     />
+                    <TextField
+                      required
+                      error={emailErrorStatus}
+                      id="email"
+                      label="email"
+                      defaultValue=""
+                      name="reply_to"
+                      // helperText="Not a valid email"
+                      variant="filled"
+                      onChange={handleChange}
+                    />
+                    <div>
+                      <TextField
+                        required
+                        error={messageErrorStatus}
+                        id="message"
+                        label="Message"
+                        multiline
+                        rows={4}
+                        defaultValue=""
+                        name="message"
+                        variant="filled"
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="contact_button">
-                  <Button type="submit" variant="contained">
-                    Submit
-                  </Button>
-                </div>
-              </Box>
-              {/* </form> */}
-              {responseMessage}
+                  <div class="contact_button">
+                    <Button type="submit" variant="contained">
+                      Submit
+                    </Button>
+                  </div>
+                </Box>
+                {/* </form> */}
+                {responseMessage}
+              </div>
             </div>
+            <div class="contact-page-side-column"></div>
           </div>
-          <div class='contact-page-side-column'></div>
         </div>
-      </div>
-    </section>
+      </section>
     </ThemeProvider>
   );
 };
