@@ -523,18 +523,12 @@ svg.MuiSvgIcon-root:hover {
   .skills-page-container {
     overflow-y: scroll;
   }
-  .css-1ayeulk-MuiStack-root {
-    margin-top: 3vw;
-  }
+  
 
-  .css-13sb918-MuiStack-root {
-    margin: 1vw;
-  }
-
-  .css-tkyp87-MuiStack-root {
-    margin: 1vw;
-  }
+  
   .contact_class h1 {
     font-size: 2rem;
   }
+
+  
 }
