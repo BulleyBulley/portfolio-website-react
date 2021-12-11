@@ -49,12 +49,12 @@ const Contact = () => {
     ) {
       send(
         //service_ID
-        "service_6bn2w3v",
+        process.env.REACT_APP_service_ID,
         //template_ID
-        "template_tohs74z",
+        process.env.REACT_APP_template_ID,
         toSend,
         //user_id
-        "user_774HKCBA6tEPAX5QvuQL2"
+        process.env.REACT_APP_template_ID
       )
         .then((response) => {
           setSuccessResponse(true);
