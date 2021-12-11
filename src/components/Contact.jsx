@@ -17,6 +17,7 @@ const Contact = () => {
   const serviceId = process.env.REACT_APP_service_ID
   const templateId = process.env.REACT_APP_template_ID
   const userId = process.env.REACT_APP_user_ID
+
  
   let theme = createTheme({
     palette: {
@@ -51,13 +52,13 @@ const Contact = () => {
       messageErrorStatus === false
     ) {
       send(
-        //service_ID
-        {serviceId},
-        //template_ID
-        {templateId},
+        
+        `${serviceId}`,
+        
+        `${templateId}`,
         toSend,
-        //user_id
-        {userId}
+        
+        `${userId}`
       )
         .then((response) => {
           setSuccessResponse(true);
