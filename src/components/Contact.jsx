@@ -54,7 +54,7 @@ const Contact = () => {
         process.env.REACT_APP_template_ID,
         toSend,
         //user_id
-        process.env.REACT_APP_template_ID
+        process.env.REACT_APP_user_ID
       )
         .then((response) => {
           setSuccessResponse(true);
